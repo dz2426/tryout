@@ -1,0 +1,57 @@
+---
+title: "p8105_OH_0915"
+author: "Duzhi Zhao"
+date: "9/15/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## HW1 Solution to Problem 1
+
+```{r}
+prob1_df = 
+  tibble(
+    samp = rnorm(5),
+    samp_gt_0 = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e"),
+    factor_vec = factor(c("low", "low", "mod", "mod", "high"))
+  )
+```
+
+## Take mean for each variable
+```{r}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0))
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, factor_vec))
+```
+
+## Convert variables
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
+```
+
+## pulling method
+```{r}
+prob1_df$samp
+pull(prob1_df, samp)
+prob1_df[["samp"]]
+```
+
+```{r}
+library(palmerpenguins)
+data(penguins)
+```
+
+```{r}
+mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
+```
+
