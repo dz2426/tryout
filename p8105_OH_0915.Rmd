@@ -2,7 +2,7 @@
 title: "p8105_OH_0915"
 author: "Duzhi Zhao"
 date: "9/15/2020"
-output: html_document
+output: github_document
 editor_options: 
   chunk_output_type: console
 ---
