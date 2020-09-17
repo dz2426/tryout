@@ -371,7 +371,8 @@ summary {
 
 <div id="hw1-solution-to-problem-1" class="section level2">
 <h2>HW1 Solution to Problem 1</h2>
-<pre class="r"><code>prob1_df = 
+<pre class="r"><code>set.seed(1)
+prob1_df = 
   tibble(
     samp = rnorm(5),
     samp_gt_0 = samp &gt; 0,
@@ -382,9 +383,9 @@ summary {
 <div id="take-mean-for-each-variable" class="section level2">
 <h2>Take mean for each variable</h2>
 <pre class="r"><code>mean(pull(prob1_df, samp))</code></pre>
-<pre><code>## [1] -0.4836763</code></pre>
+<pre><code>## [1] 0.1292699</code></pre>
 <pre class="r"><code>mean(pull(prob1_df, samp_gt_0))</code></pre>
-<pre><code>## [1] 0.2</code></pre>
+<pre><code>## [1] 0.6</code></pre>
 <pre class="r"><code>mean(pull(prob1_df, char_vec))</code></pre>
 <pre><code>## Warning in mean.default(pull(prob1_df, char_vec)): argument is not numeric or
 ## logical: returning NA</code></pre>
@@ -397,22 +398,22 @@ summary {
 <div id="convert-variables" class="section level2">
 <h2>Convert variables</h2>
 <pre class="r"><code>as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)</code></pre>
-<pre><code>## [1] 0.0000000 0.5975108 0.0000000 0.0000000 0.0000000</code></pre>
+<pre><code>## [1] 0.0000000 0.1836433 0.0000000 1.5952808 0.3295078</code></pre>
 <pre class="r"><code>as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)</code></pre>
 <pre><code>## Warning in Ops.factor(as.factor(pull(prob1_df, samp_gt_0)), pull(prob1_df, : '*'
 ## not meaningful for factors</code></pre>
 <pre><code>## [1] NA NA NA NA NA</code></pre>
 <pre class="r"><code>as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)</code></pre>
-<pre><code>## [1] -0.008145044  1.195021646 -0.707572229 -1.753221900 -0.546953237</code></pre>
+<pre><code>## [1] -0.6264538  0.3672866 -0.8356286  3.1905616  0.6590155</code></pre>
 </div>
 <div id="pulling-method" class="section level2">
 <h2>pulling method</h2>
 <pre class="r"><code>prob1_df$samp</code></pre>
-<pre><code>## [1] -0.008145044  0.597510823 -0.707572229 -1.753221900 -0.546953237</code></pre>
+<pre><code>## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</code></pre>
 <pre class="r"><code>pull(prob1_df, samp)</code></pre>
-<pre><code>## [1] -0.008145044  0.597510823 -0.707572229 -1.753221900 -0.546953237</code></pre>
+<pre><code>## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</code></pre>
 <pre class="r"><code>prob1_df[[&quot;samp&quot;]]</code></pre>
-<pre><code>## [1] -0.008145044  0.597510823 -0.707572229 -1.753221900 -0.546953237</code></pre>
+<pre><code>## [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078</code></pre>
 <pre class="r"><code>library(palmerpenguins)
 data(penguins)</code></pre>
 <pre class="r"><code>mean(pull(penguins, flipper_length_mm), na.rm = TRUE)</code></pre>

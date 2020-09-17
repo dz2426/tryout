@@ -15,6 +15,7 @@ library(tidyverse)
 ## HW1 Solution to Problem 1
 
 ```{r}
+set.seed(1)
 prob1_df = 
   tibble(
     samp = rnorm(5),
